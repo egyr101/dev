@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static "css/style-prod-card.css" %}">
+
+</head>
+<body>
+    <div class="product-card-container">
+        <img src="{% static "images/img.png" %}" alt="">
+        <h1>Название</h1>
+        <p class="info">Описание</p>
+        <p class="price">Цена:</p>
+        <div class="button-add-basket">
+            <button type="submit">
+                <div class="text-button-add-basket"><p>Добавить в корзину</p></div>
+            </button>
+        </div>
+    </div>
+</body>
+</html>
