@@ -9,15 +9,13 @@
 </head>
 <body>
     <div class="product-card-container">
-        <img src="{% static "images/img.png" %}" alt="">
-        <h1>Название</h1>
-        <p class="info">Описание</p>
-        <p class="price">Цена:</p>
-        <div class="button-add-basket">
-            <button type="submit">
-                <div class="text-button-add-basket"><p>Добавить в корзину</p></div>
-            </button>
+        <div class="back-button">
+             <a href=http://127.0.0.1:8000/{{product.category}}><h2 style="color: #555555;">&laquo;</h2></a>
         </div>
+        <img src="{% static "images/img.png"%}" alt="">
+        <h1>{{product.name}}</h1>
+        <p class="info">{{product.description}}</p>
+        <p class="price">Цена: {{product.price}}</p>
     </div>
 </body>
 </html>

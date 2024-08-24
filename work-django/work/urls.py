@@ -2,14 +2,15 @@
 from django.contrib import admin
 from django.urls import path, re_path
 from main import views
-
+from main.models import ProductCategory,Product
 urlpatterns = [
-    re_path(r'sneakers/products|boots/products|bags/products|perfumery/products|accessories/products|sunglasses/products', views.products),
+    path('admin/', admin.site.urls),
     path('', views.index, name=''),
-    path('sneakers',views.sneakers),
-    path('boots',views.boots),
-    path('bags',views.bags),
-    path('perfumery',views.perfumery),
-    path('accessories',views.accessories),
-    path('sunglasses',views.sunglasses),
+    path('Кроссовки',views.sneakers),
+    path('Ботинки',views.boots),
+    path('Сумки',views.bags),
+    path('Парфюмерия',views.perfumery),
+    path('Аксессуары',views.accessories),
+    path('Солнечные очки',views.sunglasses),
+    path('categories/<str:category>/names/<str:name>',views.product)
 ]

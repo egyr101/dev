@@ -9,171 +9,52 @@
 <body>
     <div class="main-container">
         <h1>Каталог</h1>
+        <div class="back-button">
+             <a href="http://127.0.0.1:8000/" ><h2 style="color: #555555;">&laquo;</h2></a>
+        </div>
         <div class="search-container">
-            <input type="text" placeholder="Найти...">
-            <button type="submit">Поиск</button>
+            <form method="POST" action="">
+                {% csrf_token %}
+                <input name="search-str" type="text" placeholder="Найти...">
+                <button name="search-name" type="submit">Поиск</button>
+            </form>
         </div>
         <div class="products-container">
-            <a href="http://127.0.0.1:8000/sneakers/products">
-              <div class="product-container a">
-                <img src="{% static "images/img.png" %}" alt="">
-                <div class="product-name">
-                    <p>Название</p>
-                </div>
-                <div class="product-price">
-                    <p>Цена:</p>
-                </div>
-                <div class="button-basket">
-                    <button>
-                        <div class="text-menu">
-                            <div class="plus"><p>+</p></div>
-                            <div class="basket"><p>В корзину</p></div>
+            {% if check %}
+                {% for prod in products %}
+                    <a href=/categories/{{prod.category}}/names/{{prod.name}}>
+                      <div class="product-container">
+                        <img src="{% static "images/img.png" %}" alt="">
+                        <div class="product-name">
+                            <p>{{prod.name}}</p>
                         </div>
-                    </button>
-                </div>
-              </div>
-            </a>
-            <a href="">
-              <div class="product-container b">
-
-                <img src="{% static "images/img.png" %}" alt="">
-                <div class="product-name">
-                    <p>Название</p>
-                </div>
-                <div class="product-price">
-                    <p>Цена:</p>
-                </div>
-                <div class="button-basket">
-                    <button>
-                        <div class="text-menu">
-                            <div class="plus"><p>+</p></div>
-                            <div class="basket"><p>В корзину</p></div>
+                        <div class="product-price">
+                            <p>{{prod.price}}</p>
                         </div>
-                    </button>
-                </div>
-              </div>
-            </a>
-            <a href="">
-              <div class="product-container c">
-
-                <img src="{% static "images/img.png" %}" alt="">
-                <div class="product-name">
-                    <p>Название</p>
-                </div>
-                <div class="product-price">
-                    <p>Цена:</p>
-                </div>
-                <div class="button-basket">
-                    <button>
-                        <div class="text-menu">
-                            <div class="plus"><p>+</p></div>
-                            <div class="basket"><p>В корзину</p></div>
+                        <div class="button-basket">
+                            <button>
+                                <div class="text-menu">
+                                    <div class="plus"><p>+</p></div>
+                                    <div class="basket"><p>В корзину</p></div>
+                                </div>
+                            </button>
                         </div>
-                    </button>
-                </div>
-              </div>
-            </a>
-            <a href="">
-              <div class="product-container d">
-
-                <img src="{% static "images/img.png" %}" alt="">
-                <div class="product-name">
-                    <p>Название</p>
-                </div>
-                <div class="product-price">
-                    <p>Цена:</p>
-                </div>
-                <div class="button-basket">
-                    <button>
-                        <div class="text-menu">
-                            <div class="plus"><p>+</p></div>
-                            <div class="basket"><p>В корзину</p></div>
-                        </div>
-                    </button>
-                </div>
-              </div>
-            </a>
-            <a href="">
-              <div class="product-container e">
-
-                <img src="{% static "images/img.png" %}" alt="">
-                <div class="product-name">
-                    <p>Название</p>
-                </div>
-                <div class="product-price">
-                    <p>Цена:</p>
-                </div>
-                <div class="button-basket">
-                    <button>
-                        <div class="text-menu">
-                            <div class="plus"><p>+</p></div>
-                            <div class="basket"><p>В корзину</p></div>
-                        </div>
-                    </button>
-                </div>
-              </div>
-            </a>
-            <a href="">
-              <div class="product-container f">
-
-                <img src="{% static "images/img.png" %}" alt="">
-                <div class="product-name">
-                    <p>Название</p>
-                </div>
-                <div class="product-price">
-                    <p>Цена:</p>
-                </div>
-                <div class="button-basket">
-                    <button>
-                        <div class="text-menu">
-                            <div class="plus"><p>+</p></div>
-                            <div class="basket"><p>В корзину</p></div>
-                        </div>
-                    </button>
-                </div>
-              </div>
-            </a>
-            <a href="">
-              <div class="product-container g">
-
-                <img src="{% static "images/img.png" %}" alt="">
-                <div class="product-name">
-                    <p>Название</p>
-                </div>
-                <div class="product-price">
-                    <p>Цена:</p>
-                </div>
-                <div class="button-basket">
-                    <button>
-                        <div class="text-menu">
-                            <div class="plus"><p>+</p></div>
-                            <div class="basket"><p>В корзину</p></div>
-                        </div>
-                    </button>
-                </div>
-              </div>
-            </a>
-            <a href="#">
-              <div class="product-container h">
-
-                <img src="{% static "images/img.png" %}" alt="">
-                <div class="product-name">
-                    <p>Название</p>
-                </div>
-                <div class="product-price">
-                    <p>Цена:</p>
-                </div>
-                <div class="button-basket">
-                    <button>
-                        <div class="text-menu">
-                            <div class="plus"><p>+</p></div>
-                            <div class="basket"><p>В корзину</p></div>
-                        </div>
-                    </button>
-                </div>
-              </div>
-            </a>
+                      </div>
+                    </a>
+                {%endfor%}
+            {% else %}
+                <h1>Извините! Товаров не обнаружено</h1>
+            {%endif%}
         </div>
+        <footer>
+            <form method="POST" action="">
+                {% csrf_token %}
+                {% if pre > 0 %}
+                    <button type="submit" name="pre">Предыдущий</button>
+                {%endif%}
+                <button type="submit" name="next">Следующий</button>
+            </form>
+        </footer>
     </div>
 </body>
 </html>
