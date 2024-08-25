@@ -3,6 +3,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Title</title>
     <link rel="stylesheet" href="{% static "css/style-prod-catalog.css" %}">
 </head>
@@ -10,51 +12,48 @@
     <div class="main-container">
         <h1>Каталог</h1>
         <div class="back-button">
-             <a href="http://127.0.0.1:8000/" ><h2 style="color: #555555;">&laquo;</h2></a>
+             <a href="http://127.0.0.1:8000/" ><h2 style="color: #555555">&laquo;</h2></a>
         </div>
-        <div class="search-container">
+        <div class="form-container">
             <form method="POST" action="">
                 {% csrf_token %}
-                <input name="search-str" type="text" placeholder="Найти...">
-                <button name="search-name" type="submit">Поиск</button>
+                <div class="search_container">
+                    <input class="search-input" name="search-str" type="text" placeholder="Найти...">
+                    <button class="search-but" name="search-name" type="submit">&raquo;</button>
+                </div>
             </form>
         </div>
-        <div class="products-container">
-            {% if check %}
-                {% for prod in products %}
-                    <a href=/categories/{{prod.category}}/names/{{prod.name}}>
-                      <div class="product-container">
-                        <img src="{% static "images/img.png" %}" alt="">
-                        <div class="product-name">
-                            <p>{{prod.name}}</p>
-                        </div>
-                        <div class="product-price">
-                            <p>{{prod.price}}</p>
-                        </div>
-                        <div class="button-basket">
-                            <button>
-                                <div class="text-menu">
-                                    <div class="plus"><p>+</p></div>
-                                    <div class="basket"><p>В корзину</p></div>
+
+        {% if check %}
+            <form class="form-next-pre" method="POST" action="">
+                {% csrf_token %}
+                    {% if pre > 0 %}
+                        <button class="pre bu" type="submit" name="pre">Предыдущий</button>
+                    {%endif%}
+                    {% if check_last%}
+                        <button class="next bu" type="submit" name="next">Следующий</button>
+                    {%endif%}
+            </form>
+            <div class="products-container">
+                    {% for prod in products %}
+                        <a href=/categories/{{prod.category}}/names/{{prod.name}}>
+                          <div class="product-container">
+                            <img src={{  prod.image.url }} alt="">
+                              <div style="text-align: center" class="text-block">
+                                <div class="product-name">
+                                    <p>{{prod.name}} </p>
                                 </div>
-                            </button>
-                        </div>
-                      </div>
-                    </a>
-                {%endfor%}
-            {% else %}
-                <h1>Извините! Товаров не обнаружено</h1>
-            {%endif%}
+                                <div class="product-price">
+                                    <p>{{prod.price}} рублей</p>
+                                </div>
+                              </div>
+                          </div>
+                        </a>
+                    {%endfor%}
+        {% else %}
+            <h1>Извините! Товаров не обнаружено</h1>
+        {%endif%}
         </div>
-        <footer>
-            <form method="POST" action="">
-                {% csrf_token %}
-                {% if pre > 0 %}
-                    <button type="submit" name="pre">Предыдущий</button>
-                {%endif%}
-                <button type="submit" name="next">Следующий</button>
-            </form>
-        </footer>
     </div>
 </body>
 </html>

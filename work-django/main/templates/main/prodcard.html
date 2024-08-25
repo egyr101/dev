@@ -3,19 +3,28 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Title</title>
     <link rel="stylesheet" href="{% static "css/style-prod-card.css" %}">
-
 </head>
-<body>
-    <div class="product-card-container">
+<body style="
+    font-family: Verdana,sans-serif;
+    margin:0;
+    padding: 0;
+    background-color: lightgray;">
+    <div class="product-card-container" style="
+    text-align: center;
+">
         <div class="back-button">
-             <a href=http://127.0.0.1:8000/{{product.category}}><h2 style="color: #555555;">&laquo;</h2></a>
+             <a style="text-decoration: none; color: black" href=http://127.0.0.1:8000/{{product.category}}><h2>&laquo;</h2></a>
         </div>
-        <img src="{% static "images/img.png"%}" alt="">
+        <div class="img-container">
+            <img style="width: 80%" src={{product.image.url}} alt="">
+        </div>
         <h1>{{product.name}}</h1>
-        <p class="info">{{product.description}}</p>
-        <p class="price">Цена: {{product.price}}</p>
+        <p style="height:300px">{{product.description}}</p>
+        <p style="margin-bottom: 40px">Цена: {{product.price}}</p>
     </div>
 </body>
 </html>

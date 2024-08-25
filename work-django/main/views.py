@@ -46,15 +46,23 @@ def pag(request,a):
                 items = items + [prod]
             else:
                 break
+    if items[-1].id == Product.objects.filter(category=a).last().id:
+        check_last = False
+    else:
+        check_last = True
     context ={
         'products': items,
         'pre': Page.page_direction,
         'check': Page.check_quality,
+        'check_last': check_last,
     }
     return context
 def index(request):
     Page.page_direction = 0
-    return render(request, 'main/index.html')
+    context = {
+        'url':Page.url
+    }
+    return render(request, 'main/index.html',context)
 def sneakers(request):
     return render(request, 'main/prodcatalog.html',pag(request,2))
 
