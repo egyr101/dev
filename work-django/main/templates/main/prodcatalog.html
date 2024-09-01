@@ -23,16 +23,31 @@
                 </div>
             </form>
         </div>
-
         {% if check %}
             <form class="form-next-pre" method="POST" action="">
                 {% csrf_token %}
-                    {% if pre > 0 %}
-                        <button class="pre bu" type="submit" name="pre">Предыдущий</button>
-                    {%endif%}
-                    {% if check_last%}
-                        <button class="next bu" type="submit" name="next">Следующий</button>
-                    {%endif%}
+                        {% if pre > 0 %}
+                            <button class="pre bu" type="submit" name="pre">Предыдущий</button>
+                        {% endif %}
+                        {% if check_last%}
+                            <button class="next bu" type="submit" name="next">Следующий</button>
+                        {% endif %}
+                        <button class="man bu" type="submit" name="man" style="background-color: white;
+                          height: 3em;
+                          border-style: solid;
+                          border-color: #212529;
+                          font-weight: bold;
+                          border-radius: 15px;
+                          margin-inline: 5px;
+                          "> Мужские</button>
+                        <button class="woman bu" type="submit" name="woman" style="background-color: white;
+                          height: 3em;
+                          border-style: solid;
+                          border-color: #212529;
+                          font-weight: bold;
+                          border-radius: 15px;
+                          margin-inline: 5px;
+                          ">Женские</button>
             </form>
             <div class="products-container">
                     {% for prod in products %}

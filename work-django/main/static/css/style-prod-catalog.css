@@ -95,7 +95,7 @@ h1{
 .form-next-pre{
   text-align: center;
 }
-.next, .pre{
+.next, .pre, .gen{
   background-color: white;
   height: 3em;
   border-style: solid;
