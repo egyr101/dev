@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from main.models import ProductCategory,Product,Page
+from django.utils.text import slugify
 Page.page_direction = 0
 Page.check_woman = False
 Page.check_man = False
@@ -176,8 +177,9 @@ def accessories(request):
 
 def sunglasses(request):
     return render(request, 'main/prodcatalog.html',pag(request,6))
-def product(request,category,name):
+def product(request,category,id):
     context = {
-        'product':Product.objects.get(name=name)
+        'product':Product.objects.get(id=id),
+
     }
     return render(request, 'main/prodcard.html', context)
