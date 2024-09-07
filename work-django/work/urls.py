@@ -13,7 +13,7 @@ urlpatterns = [
     path('Сумки',views.bags),
     path('Парфюмерия',views.perfumery),
     path('Аксессуары',views.accessories),
-    path('Солнечные очки',views.sunglasses),
+    path('Солнечныеочки',views.sunglasses),
     path('categories/<str:category>/names/<str:name>',views.product)
 ]
 if settings.DEBUG:

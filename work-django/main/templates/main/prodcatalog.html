@@ -39,12 +39,14 @@
                           font-weight: bold;
                           border-radius: 15px;
                           margin-inline: 5px;
+                          font-family: 'Times New Roman',SansSerif;
                           "> Мужские</button>
                         <button class="woman bu" type="submit" name="woman" style="background-color: white;
                           height: 3em;
                           border-style: solid;
                           border-color: #212529;
                           font-weight: bold;
+                          font-family: 'Times New Roman',SansSerif;
                           border-radius: 15px;
                           margin-inline: 5px;
                           ">Женские</button>
@@ -53,7 +55,7 @@
                     {% for prod in products %}
                         <a href=/categories/{{prod.category}}/names/{{prod.name}}>
                           <div class="product-container">
-                            <img src={{  prod.image.url }} alt="">
+                            <img src={{  prod.image0.url }} alt="">
                               <div style="text-align: center" class="text-block">
                                 <div class="product-name">
                                     <p>{{prod.name}} </p>

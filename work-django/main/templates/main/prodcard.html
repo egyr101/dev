@@ -7,24 +7,27 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Title</title>
     <link rel="stylesheet" href="{% static "css/style-prod-card.css" %}">
+    <script src="{% static "script/script.js"%}"></script>
 </head>
-<body style="
-    font-family: Verdana,sans-serif;
-    margin:0;
-    padding: 0;
-    background-color: lightgray;">
-    <div class="product-card-container" style="
-    text-align: center;
-">
+<body>
+    <div class="product-card-container">
         <div class="back-button">
-             <a style="text-decoration: none; color: black" href=http://127.0.0.1:8000/{{product.category}}><h2>&laquo;</h2></a>
+             <a href=http://127.0.0.1:8000/{{product.category}}><h2>&laquo;</h2></a>
         </div>
         <div class="img-container">
-            <img style="width: 80%" src={{product.image.url}} alt="">
+            <img src={{product.image0.url}} alt="" class="image-slide">
+            <img src={{product.image1.url}} alt="" class="image-slide">
+            <img src={{product.image2.url}} alt="" class="image-slide">
+            <img src={{product.image3.url}} alt="" class="image-slide">
+            <img src={{product.image4.url}} alt="" class="image-slide">
+            <img src={{product.image5.url}} alt="" class="image-slide">
         </div>
-        <h1>{{product.name}}</h1>
-        <p style="height:300px">{{product.description}}</p>
-        <p style="margin-bottom: 40px">Цена: {{product.price}}</p>
+        <button onclick="BackSlide()" class="slide-back but-slide">	&#8249;</button>
+        <button onclick="NextSlide()" class="slide-next but-slide">&#8250;</button>
+
+        <h2 class="name-card">{{product.name}}</h2>
+        <p class="description-card" >{{product.description}}</p>
+        <p class="price-card">Цена: {{product.price}}</p>
     </div>
 </body>
 </html>
