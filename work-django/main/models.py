@@ -29,7 +29,7 @@ class Product(models.Model):
         return f'Продукт: {self.name} | Категория: {self.category.name}'
 class Page(models.Model):
     page_direction = 0
-    url = 'http://195.43.142.204:8000/'
+    url = 'http://194.87.210.247:8000/'
     check_quality = True
     check_man = False
     check_woman = False

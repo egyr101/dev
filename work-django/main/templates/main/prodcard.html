@@ -12,7 +12,7 @@
 <body>
     <div class="product-card-container">
         <div class="back-button">
-             <a href=http://195.43.142.204:8000/{{product.category}}><h2>&laquo;</h2></a>
+             <a href=http://194.87.210.247:8000/{{product.category}}><h2>&laquo;</h2></a>
         </div>
         <div class="img-container">
             <img src={{product.image0.url}} alt="" class="image-slide">
@@ -25,9 +25,18 @@
         <button onclick="BackSlide()" class="slide-back but-slide">	&#8249;</button>
         <button onclick="NextSlide()" class="slide-next but-slide">&#8250;</button>
 
-        <h5 class="name-card">{{product.name}}</h5>
-        <p class="description-card" >{{product.description}}</p>
-        <p class="price-card">Цена: {{product.price}}</p>
+        <h5 style="justify-self: left; grid-column: 1/10; text-align: start ; margin-left: 10px;" class="name-card">{{product.name}}</h5>
+        <div style="justify-self: left; grid-column: 1/11; text-align: start ; margin-left: 10px; line-height: 10px; font-size: 12px" class="description-card" >
+            <p>ОПЛАТА ПОСЛЕ ПРММЕРКИ</p>
+            <p>QR -код присутствует и пробивается</p>
+            <p>Размерный ряд: 36 - 45 EU</p>
+            <p>Гарантия на обмен и возврат товара</p>
+            <p>❗️ДОСТАВКА❗️</p>
+            <p>◾️️Доставим курьером в день заказа!</p>
+            <p>◾️Самовывоз из нашего ПВЗ</p>
+            <p>◾️Отправляем в любую точку мира (Почтой России, СДЭК)</p>
+        </div>
+        <p style="justify-self: left; grid-column: 1/10; text-align: start ; margin-left: 10px; grid-row: 2/3; align-self: end" class="price-card">Цена: {{product.price}}</p>
     </div>
 </body>
 </html>

@@ -56,7 +56,6 @@ button{
     align-self: end;
 }
 .description-card{
-    text-align: center;
     grid-row: 2/3;
     align-self: start;
     grid-column: 3/9;
