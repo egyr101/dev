@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static "css/style-prod-catalog.css" %}">
+</head>
+<body>
+        <div class="main-container">
+            <h1>Каталог</h1>
+            <div class="back-button">
+                 <a href="http://194.87.210.247:8000/" ><h2 style="color: #555555">&laquo;</h2></a>
+            </div>
+        {%if check%}
+            <div class="form-container">
+                <form method="POST" action="">
+                    {% csrf_token %}
+                    <div class="search_container">
+                        <input class="search-input" name="search-str" type="text" placeholder="Найти...">
+                        <button class="search-but" name="search-name" type="submit">&raquo;</button>
+                    </div>
+                </form>
+            </div>
+            <form class="form-next-pre" method="POST" action="">
+                {% csrf_token %}
+                        {% if pre > 0 %}
+                            <button class="pre bu" type="submit" name="pre">Предыдущий</button>
+                        {% endif %}
+                        {% if check_last%}
+                            <button class="next bu" type="submit" name="next">Следующий</button>
+                        {% endif %}
+                        <button class="man bu" type="submit" name="man" style="background-color: white;
+                          height: 3em;
+                          border-style: solid;
+                          border-color: #212529;
+                          font-weight: bold;
+                          border-radius: 15px;
+                          margin-inline: 5px;
+                          font-family: 'Times New Roman',SansSerif;
+                          "> Мужские</button>
+                        <button class="woman bu" type="submit" name="woman" style="background-color: white;
+                          height: 3em;
+                          border-style: solid;
+                          border-color: #212529;
+                          font-weight: bold;
+                          font-family: 'Times New Roman',SansSerif;
+                          border-radius: 15px;
+                          margin-inline: 5px;
+                          ">Женские</button>
+            </form>
+            <div class="products-container" style="align-items: start">
+                    {% for prod in products %}
+                        <a href=/categories/{{prod.category}}/{{prod.id}}>
+                          <div class="product-container" >
+                            <img src={{  prod.image0.url }} alt="">
+                              <div style="text-align: center" class="text-block">
+                                <div class="product-name">
+                                    <p style="font-size:0.6em">{{prod.name}} </p>
+                                </div>
+                                <div class="product-price">
+                                    <p>{{prod.price}} рублей</p>
+                                </div>
+                              </div>
+                          </div>
+                        </a>
+                    {%endfor%}
+            </div>
+        {% else %}
+            <h2 class="text_failed">Извините! Товаров не обнаружено</h2>
+        {%endif%}
+        </div>
+</body>
+</html>
